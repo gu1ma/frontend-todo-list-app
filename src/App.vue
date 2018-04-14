@@ -9,11 +9,26 @@
 
 <script>
 import InputTask from './components/InputTask'
+import { Task } from './models/Task'
+
+let tasks = []
+let task = new Task();
+task.title = 'Tarefa'
+task.completed = false;
+
+tasks.push(task)
+tasks.push(task)
+tasks.push(task)
 
 export default {
   name: 'App',
   components:{
       InputTask
+  },
+  data(){
+    return {
+        tasks: tasks
+    }
   }
 }
 </script>
