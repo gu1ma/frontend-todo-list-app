@@ -22,7 +22,9 @@ export default {
             let value = $event.target.value
             task.completed = false
             task.title = value
-            console.log(task)
+            this.$emit('newTask', task)
+            $event.target.value	 = ''
+            //console.log(task)
         }
     }
 }

@@ -2,32 +2,31 @@
   <section class="todoapp">
     <header class="header">
       <h1>Tarefas</h1>
-      <input-task></input-task>
+      <input-task @newTask="addTask"></input-task>
+      <task-list v-bind:todo-list="tasks"></task-list>
     </header>
   </section>
 </template>
 
 <script>
 import InputTask from './components/InputTask'
+import TaskList from './components/TaskList'
 import { Task } from './models/Task'
-
-let tasks = []
-let task = new Task();
-task.title = 'Tarefa'
-task.completed = false;
-
-tasks.push(task)
-tasks.push(task)
-tasks.push(task)
 
 export default {
   name: 'App',
   components:{
-      InputTask
+      InputTask,
+      TaskList
   },
   data(){
     return {
-        tasks: tasks
+        tasks: []
+    }
+  },
+  methods:{
+    addTask(task){
+      this.tasks.push(task)
     }
   }
 }
