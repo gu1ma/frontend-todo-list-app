@@ -1,8 +1,6 @@
-# vue-frontend-app
+### This is a To-Do list project in VueJs
 
-> A Vue.js project
-
-## Build Setup
+### Build Setup
 
 ``` bash
 # install dependencies
