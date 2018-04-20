@@ -1,0 +1,38 @@
+<template>
+    <section class="cep-checker">
+        <label>Digite o seu cep</label>
+        <input type="text"/>
+        <router-link class="home" to="/">Ver tarefas</router-link>
+    </section>
+</template>
+
+<script>
+export default {
+    data(){
+        return {
+        }
+    }
+}
+</script>
+
+<style lang="less">
+.home{
+  text-decoration: none;
+  font-size: 16px;
+  display: block;
+  padding: 5px;
+  text-align: center;
+}
+.cep-checker{
+  margin: 20px 0;
+  text-align: center;
+  label{
+    display: block;
+  }
+  input{
+    margin: 20px;
+    height: 2em;
+    padding: 2px;
+  }
+}
+</style>

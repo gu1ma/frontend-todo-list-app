@@ -4,6 +4,7 @@
       <h1>Tarefas</h1>
       <input-task @newTask="addTask"></input-task>
       <task-list v-bind:todo-list="tasks"></task-list>
+			<router-link class="cep" to="/cep">Verificar CEP</router-link>
     </header>
   </section>
 </template>
@@ -103,4 +104,13 @@ body {
 	-moz-text-rendering: optimizeLegibility;
 	text-rendering: optimizeLegibility;
 }
+
+.fade-enter-active,	.fade-leave-active {
+	transition:	opacity	.5s
+}
+
+.fade-enter,	.fade-leave-to {
+	opacity:	0
+}
+
 </style>
