@@ -1,7 +1,7 @@
 <template>
     <section class="cep-checker">
         <label>Digite o seu cep</label>
-        <input type="text" @blur="checkCep"/>
+        <input v-mask="'99999-999'" type="text" @blur="checkCep"/>
         <router-link class="home" to="/">Ver tarefas</router-link>
         <div class="address" v-show="hasAddress()">
             <p>Rua: {{this.address.logradouro}}</p>
@@ -13,12 +13,17 @@
 </template>
 
 <script>
+import AwesomeMask from 'awesome-mask'
+
 export default {
     data(){
         return {
           address: {
           }
         }
+    },
+    directives: {
+      'mask': AwesomeMask
     },
     methods: {
       checkCep($event){

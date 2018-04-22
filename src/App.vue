@@ -2,7 +2,7 @@
   <section class="todoapp">
     <header class="header">
       <h1>Tarefas</h1>
-      <input-task @newTask="addTask"></input-task>
+      <input-task></input-task>
       <task-list v-bind:todo-list="tasks"></task-list>
 			<router-link class="cep" to="/cep">Verificar CEP</router-link>
     </header>
@@ -24,9 +24,14 @@ export default {
     return {
         tasks: []
     }
-  },
+	},
+	mounted(){
+		//console.log('chamou mounted')
+		this.$events.on('newTask', eventData => this.addTask(eventData))
+	},
   methods:{
     addTask(task){
+			//console.log('chamou addTask')
       this.tasks.push(task)
     }
   }

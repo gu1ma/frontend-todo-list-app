@@ -1,20 +1,27 @@
 <template>
   <div>
-      <input 
-        class="new-todo" 
-        placeholder="O que precisa ser feito?"
-        @keyup.enter="addTask">
+      <transition appear name="fade">
+        <input 
+            class="new-todo" 
+            placeholder="O que precisa ser feito?"
+            @keyup.enter="addTask"
+            v-focus="true">
+      </transition>
   </div>
 </template>
 
 <script>
 
 import { Task } from '../models/Task'
+import Focus from '../directives/focus.js'
 
 export default {
     data(){
         return {
         }
+    },
+    directives:{
+        'focus': Focus
     },
     methods:{
         addTask($event){
@@ -31,7 +38,7 @@ export default {
             return task
         },
         broadcast(task){
-            this.$emit('newTask', task)
+            this.$events.emit('newTask', task)
         },
         clearField(){
             this.$el.querySelector('input').value = ''
