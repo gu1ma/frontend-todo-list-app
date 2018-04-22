@@ -5,7 +5,8 @@
       <input-task></input-task>
       <task-list v-bind:todo-list="tasks"></task-list>
 			<router-link class="cep" to="/cep">Verificar CEP</router-link>
-    </header>
+			<footer-todo></footer-todo>
+		</header>
   </section>
 </template>
 
@@ -13,12 +14,14 @@
 import InputTask from './components/InputTask'
 import TaskList from './components/TaskList'
 import { Task } from './models/Task'
+import FooterTodo from './components/FooterTodo'
 
 export default {
   name: 'App',
   components:{
       InputTask,
-      TaskList
+			TaskList,
+			FooterTodo
   },
   data(){
     return {
