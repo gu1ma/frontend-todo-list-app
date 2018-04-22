@@ -3,7 +3,7 @@
         <transition-group name="fade">
 			<li v-for="(todo, index) in sortedTasks" class="todo" :key="index">
 				<div class="view">
-					<input class="toggle" type="checkbox" @click="completeTask(todo)">
+					<input class="toggle" type="checkbox" @click="completeTask(todo)" v-model="todo.completed">
 					<label v-bind:class="{ 'todo-completed' : todo.completed }">
 						{{ todo.title }}
 					</label>
@@ -15,10 +15,9 @@
 
 <script>
 export default {
-    props: ['todoList'],
     computed: {
         sortedTasks: function(){
-            let sorted = this.todoList
+            let sorted = this.$store.state.tasks
             return sorted.sort(function(a, b){
                 if(a.title < b.title) return -1
                 if(a.title > b.title) return 1
@@ -28,7 +27,7 @@ export default {
     },
     methods:{
         completeTask: function(task){
-            task.completed = !task.completed 
+            this.$store.commit('completeTask', {task})
         }
     }
 }
